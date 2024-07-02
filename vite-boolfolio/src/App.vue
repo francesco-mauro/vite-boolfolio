@@ -1,16 +1,18 @@
 <template>
   <div>
     <h1>Projects</h1>
-    <ul>
-      <li v-for="project in projects" :key="project.id">{{ project.title }}</li>
-    </ul>
+    <ProjectCard v-for="project in projects" :key="project.id" :project="project" />
   </div>
 </template>
 
 <script>
 import axios from 'axios'
+import ProjectCard from './components/ProjectCard.vue'
 
 export default {
+  components: {
+    ProjectCard
+  },
   data() {
     return {
       projects: []
@@ -27,3 +29,4 @@ export default {
   }
 }
 </script>
+
